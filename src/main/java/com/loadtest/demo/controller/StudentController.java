@@ -11,16 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.loadtest.demo.dao.StudentDAO;
@@ -28,7 +23,8 @@ import com.loadtest.demo.dto.inbound.StudentInDTO;
 import com.loadtest.demo.dto.outbound.StudentOutDTO;
 import com.loadtest.demo.model.Student;
 
-@Controller
+@RestController
+@Slf4j
 public class StudentController {
 	@Autowired
 	private StudentDAO studentRepo; 
@@ -56,7 +52,7 @@ public class StudentController {
 	@ResponseBody
 	public StudentOutDTO save(@RequestBody StudentInDTO dto) {
 		Student student = dto.toEntity(); 
-		
+		log.info("fxh: student: {}", student.getKlass());
 		studentRepo.save(student);
 		
 		return new StudentOutDTO(student); 

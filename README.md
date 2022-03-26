@@ -1,5 +1,5 @@
 
-# Student TinyService for Load Testing (RESTful)
+#Load Testing (RESTful)
 
 Here is a medium [article](https://medium.com/@rhamedy/how-to-load-test-a-developers-guide-to-performance-testing-5264faaf4e33?sk=b6286f9bed051f53a642c62c163014f3) on how to use this **repository** to design and run basic load tests using **Apache JMeter** and **Taurus** frameworks.   
 
